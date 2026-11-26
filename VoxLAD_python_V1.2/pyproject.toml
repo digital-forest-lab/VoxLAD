@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voxlad"
+version = "1.2.0"
+description = "Voxel-level leaf area density from ground-based lidar (Beland, Widlowski & Fournier 2014)"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Martin Beland" }]
+dependencies = ["numpy>=1.22", "tomli>=1.1; python_version < '3.11'"]
+
+[project.optional-dependencies]
+fast = ["numba>=0.56"]
+las = ["laspy>=2.0"]
+test = ["pytest"]
+
+[project.scripts]
+voxlad = "voxlad.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,28 @@
+# Worked example: one shea tree scanned from two sides with an Optech ILRIS-3D.
+# The two .asc files are in the original VoxLAD format, so the scanner position,
+# the left and right scan edges and the angular step (0.00026 rad) are read from
+# their 5-line headers.
+
+[grid]
+voxel_size = 0.3
+z_range = [-1.0, 12.0]          # leave out the ground and the base of the trunk
+
+[model]
+leaf_angle = "erectophile"
+
+[classes]
+leaf = [1]
+wood = [2]
+noise = [3]
+
+[scanner]
+pattern = "uniform"             # ILRIS-3D: same pulse spacing in both directions
+
+[[scan]]
+file = "a1s1_t10.asc"
+
+[[scan]]
+file = "a1s2_t10.asc"
+
+[output]
+prefix = "results/shea_tree"
